@@ -1,9 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 function Seccion() {
-  return (
-    <div />
-  )
+    return <div />;
 }
 
 export default Seccion;

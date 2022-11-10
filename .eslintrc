@@ -1,0 +1,46 @@
+{
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:@typescript-eslint/eslint-recommended",
+      "plugin:@typescript-eslint/recommended"
+    ],
+    "env": {
+      "es6": true,
+      "browser": true,
+      "node": true
+    },
+    "rules": {
+        "indent": ["error", 4, {
+          "SwitchCase": 1,
+          "VariableDeclarator": 1,
+          "outerIIFEBody": 1,
+          "FunctionDeclaration": {
+            "parameters": 1,
+            "body": 1
+          },
+          "FunctionExpression": {
+            "parameters": 1,
+            "body": 1
+          },
+          "ignoredNodes": ["JSXElement *", "JSXElement"]
+        }],
+        "react/prop-types": "off",
+        "linebreak-style": ["error", "unix"],
+        "quotes": ["error", "single"],
+        "semi": ["error", "always"],
+        "@typescript-eslint/no-var-requires": ["off"],
+        "no-empty": "warn",
+        "no-cond-assign": ["error", "always"],
+        "@typescript-eslint/explicit-module-boundary-types": ["off"],
+        "for-direction": "off",
+        "@typescript-eslint/no-unused-vars": ["error"],
+        "react/jsx-curly-spacing": [2, "always"],
+        "react/jsx-indent": ["error", 4],
+        "react/jsx-indent-props": [2, 2]
+    }
+}
