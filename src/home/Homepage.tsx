@@ -1,7 +1,7 @@
 import React from 'react';
 
-function Seccion() {
+function Homepage() {
     return <div />;
 }
 
-export default Seccion;
+export default Homepage;
