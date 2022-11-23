@@ -1,35 +1,44 @@
+import Grid from '@mui/material/Grid';
 import React from 'react';
-import { Navbar, Container, Nav } from 'react-bootstrap';
+import { Button, Navbar, Nav } from 'react-bootstrap';
 import Logo from './logo.png';
 
 function NavbarHome() {
     return (
-        <Navbar bg='light' expand='lg'>
-            <Container fluid>
-                <div>
+        <Navbar expand='lg'>
+            <Grid container justifyContent='center' alignItems='center' spacing={ 12 }>
+                <Grid item>
                     <div>
-                        <a href='/'>
-                            <img style={ { height: '2.2rem', margin: '0.2rem' } } src={ Logo } />
-                        </a>
+                        <div>
+                            <a href='/'>
+                                <img style={ { height: '2.2rem' } } src={ Logo } />
+                            </a>
+                        </div>
+                        <div style={ { fontSize: '11px', fontFamily: 'Roboto' } }>
+                            Centro de Endoscopía Digestiva de Rosario
+                        </div>
                     </div>
-                    <div style={ { fontSize: '11px', fontFamily: 'Roboto' } }>
-                        Centro de Endoscopía Digestiva de Rosario
-                    </div>
-                </div>
-                <Navbar.Toggle aria-controls='navbarScroll' />
-                <Navbar.Collapse id='navbarScroll'>
-                    <Nav
-                      className='me-auto my-2 my-lg-0'
-                      style={ { maxHeight: '100px' } }
-                      navbarScroll
-                    >
-                        <Nav.Link href='#action1'>Inicio</Nav.Link>
-                        <Nav.Link href='#action2'>Quienes Somos</Nav.Link>
-                        <Nav.Link href='#action2'>Preparación para Estudios</Nav.Link>
-                        <Nav.Link href='#action2'>Campañas</Nav.Link>
-                    </Nav>
-                </Navbar.Collapse>
-            </Container>
+                </Grid>
+                <Grid item>
+                    <Navbar.Collapse id='navbarScroll'>
+                        <Nav
+                          className='me-auto my-2 my-lg-0 '
+                          style={ { maxHeight: '100px' } }
+                          navbarScroll
+                        >
+                            <Nav.Link style={ { fontFamily: 'Raleway, sans-serif', padding: '1rem   2rem' } } href='#action1'>Inicio</Nav.Link>
+                            <Nav.Link style={ { fontFamily: 'Raleway, sans-serif', padding: '1rem   2rem' } } href='#action2'>Quienes Somos</Nav.Link>
+                            <Nav.Link style={ { fontFamily: 'Raleway, sans-serif', padding: '1rem   2rem' } } href='#action2'>Preparación para Estudios</Nav.Link>
+                            <Nav.Link style={ { fontFamily: 'Raleway, sans-serif', padding: '1rem   2rem' } } href='#action2'>Campañas</Nav.Link>
+                        </Nav>
+                    </Navbar.Collapse>
+                </Grid>
+                <Grid item>
+                    <Button variant='primary' size='sm' style={ { color: 'white', fontFamily: 'Roboto', fontWeight: '400', fontSize: '13px' } }>
+                        Dejanos tu consulta
+                    </Button>
+                </Grid>
+            </Grid>
         </Navbar>
     );
 }
