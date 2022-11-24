@@ -1,6 +1,7 @@
 import Grid from '@mui/material/Grid';
 import React from 'react';
 import { Button, Navbar } from 'react-bootstrap';
+import Brand from './Brand';
 import NavLinks from './NavLinks';
 
 function NavbarHome() {
@@ -8,10 +9,10 @@ function NavbarHome() {
         <Navbar expand='lg'>
             <Grid container justifyContent='center' alignItems='center' spacing={ 12 }>
                 <Grid item>
-                    
+                    <Brand />
                 </Grid>
                 <Grid item>
-                    <NavLinks />
+                    <NavLinks links={ ['Inicio', 'Quienes Somos', 'Preparacion para Estudios', 'Campañas'] } />
                 </Grid>
                 <Grid item>
                     <Button variant='primary' size='sm' style={ { color: 'white', border: '1px solid #248d8e', fontFamily: 'Roboto', fontWeight: '400', fontSize: '13px', padding: 'auto 15px' } }>

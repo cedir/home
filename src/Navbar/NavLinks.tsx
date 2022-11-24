@@ -1,35 +1,34 @@
-import React from 'react';
+import React, { CSSProperties } from 'react';
 import { Nav, Navbar } from 'react-bootstrap';
 
-export default function NavLinks() {
+function NavLinks({ links }: NavLinksProps) {
+    const style: StyleObject = {
+        navLink: { fontFamily: 'Raleway, sans-serif', padding: '1rem   2rem' },
+        nav: { maxHeight: '100px' },
+    };
     return (
         <Navbar.Collapse id='navbarScroll'>
-            <Nav className='me-auto my-2 my-lg-0 ' style={ { maxHeight: '100px' } } navbarScroll>
-                <Nav.Link
-                  style={ { fontFamily: 'Raleway, sans-serif', padding: '1rem   2rem' } }
-                  href='#action1'
-                >
-                    Inicio
-                </Nav.Link>
-                <Nav.Link
-                  style={ { fontFamily: 'Raleway, sans-serif', padding: '1rem   2rem' } }
-                  href='#action2'
-                >
-                    Quienes Somos
-                </Nav.Link>
-                <Nav.Link
-                  style={ { fontFamily: 'Raleway, sans-serif', padding: '1rem   2rem' } }
-                  href='#action2'
-                >
-                    Preparación para Estudios
-                </Nav.Link>
-                <Nav.Link
-                  style={ { fontFamily: 'Raleway, sans-serif', padding: '1rem   2rem' } }
-                  href='#action2'
-                >
-                    Campañas
-                </Nav.Link>
+            <Nav className='me-auto my-2 my-lg-0 ' style={ style.nav } navbarScroll>
+                {links.map(link => (
+                    <Nav.Link
+                      style={ style.navLink }
+                      href='#action1'
+                      key={ link }
+                    >
+                        { link }
+                    </Nav.Link>
+                ))}
             </Nav>
         </Navbar.Collapse>
     );
 }
+
+interface StyleObject {
+    [key: string]: CSSProperties,
+}
+
+interface NavLinksProps {
+    links: string[];
+}
+
+export default NavLinks;
