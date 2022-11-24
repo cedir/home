@@ -1,23 +1,13 @@
 import Grid from '@mui/material/Grid';
 import React from 'react';
 import { Button, Navbar, Nav } from 'react-bootstrap';
-import Logo from './logo.png';
 
 function NavbarHome() {
     return (
         <Navbar expand='lg'>
             <Grid container justifyContent='center' alignItems='center' spacing={ 12 }>
                 <Grid item>
-                    <div>
-                        <div>
-                            <a href='/'>
-                                <img style={ { height: '2.2rem' } } src={ Logo } />
-                            </a>
-                        </div>
-                        <div style={ { fontSize: '11px', fontFamily: 'Roboto' } }>
-                            Centro de Endoscopía Digestiva de Rosario
-                        </div>
-                    </div>
+                    
                 </Grid>
                 <Grid item>
                     <Navbar.Collapse id='navbarScroll'>
