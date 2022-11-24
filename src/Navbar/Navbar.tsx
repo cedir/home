@@ -34,8 +34,8 @@ function NavbarHome() {
                     </Navbar.Collapse>
                 </Grid>
                 <Grid item>
-                    <Button variant='primary' size='sm' style={ { color: 'white', fontFamily: 'Roboto', fontWeight: '400', fontSize: '13px' } }>
-                        Dejanos tu consulta
+                    <Button variant='primary' size='sm' style={ { color: 'white', border: '1px solid #248d8e', fontFamily: 'Roboto', fontWeight: '400', fontSize: '13px', padding: 'auto 15px' } }>
+                        Dejanos tu consulta <i style={ { paddingLeft: 5 } } className='fa fa-hospital-o'/>
                     </Button>
                 </Grid>
             </Grid>
