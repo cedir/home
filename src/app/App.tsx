@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../Navbar/Navbar';
+import Navbar from '../navbar/Navbar';
 import Homepage from '../home/Homepage';
 import Pie from '../home/Pie';
 
