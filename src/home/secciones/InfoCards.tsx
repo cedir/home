@@ -1,13 +1,21 @@
-import { Grid, Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 import React from 'react';
 import './styles.css';
 
 function InfoCards() {
     return (
-        <Grid container>
-            <Grid item xs={ 12 }><h3 className='pacifico'>Cedir, Centro de Endoscopía digestiva de Rosario</h3></Grid>
+        <Grid container justifyContent='center'>
+            <Grid item xs={ 10 }>
+                <h4 className='pacifico text-center text-primary'>
+                    Cedir, Centro de Endoscopía digestiva de Rosario
+                </h4>
+                <div className='separator' />
+                <p className='text-secondary text-center'>
+                    Prevención, diagnóstico y tratamiento de enfermedades digestivas.
+                </p>
+            </Grid>
             <Grid item xs={ 12 }>
-                <Typography color='text.secondary'>Prevención, diagnostico y tratamiento de enfermedades digestivas.</Typography></Grid>
+            </Grid>
             <Grid item xs={ 12 }>
                 
             </Grid>
