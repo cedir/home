@@ -28,3 +28,11 @@
     width: 100%;
     left: 0;
   }
+
+.circle {
+  -webkit-border-radius: 100% !important;
+  -moz-border-radius: 100% !important;
+  border-radius: 100% !important;
+  height: 3.6rem;
+  width: 3.6rem;
+}
