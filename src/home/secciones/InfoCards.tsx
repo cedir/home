@@ -1,6 +1,6 @@
-import { Card, CardContent, Grid } from '@mui/material';
+import { Grid } from '@mui/material';
 import React from 'react';
-import { Button } from 'react-bootstrap';
+import Card from '../../common/Card';
 import './styles.css';
 
 function InfoCards() {
@@ -18,33 +18,36 @@ function InfoCards() {
             <Grid item xs={ 10 }>
                 <Grid container>
                     <Grid item md={ 3 }>
-                        <Card variant='outlined' className='pb-4'>
-                            <CardContent>
-                                <div className='d-flex justify-content-center py-3'>
-                                    <div className='circle bg-primary d-flex justify-content-center align-items-center'>
-                                        <i className='fa fa-plus-square text-center py-auto fa-2x' style={ { fontSize: '1.5rem', color: 'white' } } />
-                                    </div>
-                                </div>
-                                <h4 className='text-center' style={ { fontFamily: 'Raleway', fontWeight: 400 } }>Quienes Somos</h4>
-                                <div className='separator' />
-                                <p className='text-secondary text-center'>Conozca nuestro equipo. Toda la calidad medica en un solo lugar.</p>
-                                <div className='d-flex justify-content-center'>
-                                    <Button variant='primary' size='sm' className='px-3 pl-4 py-2'>
-                                        <span style={ { paddingLeft: '.3rem', marginRight: '1rem' } }><b>Leer más</b></span>
-                                        <i className='fa fa-angle-double-right' />
-                                    </Button>
-                                </div>
-                            </CardContent>
-                        </Card>
+                        <Card
+                          title='Quienes Somos'
+                          body='Conozca nuestro equipo. Toda la calidad medica en un solo lugar.'
+                          icon='fa-plus-square'
+                          button='Leer más'
+                          buttonIcon='fa-angle-double-right'
+                        />
                     </Grid>
                     <Grid item md={ 3 }>
-
+                        <Card
+                          title='Turnos'
+                          body='Podes solicitar un turno a traves de nuestros telefonos o enviandonos un mensaje.'
+                          icon='fa-hospital-o'
+                          button='Enviar mensaje'
+                          buttonIcon='fa-stethoscope'
+                        />
                     </Grid>
                     <Grid item md={ 3 }>
-
+                        <Card
+                          title='WhatsApp'
+                          body='Solicite turnos por WhatsApp a los números (+549341) 3538426 / (+549341) 6751535.'
+                          icon='fa-ambulance'
+                        />
                     </Grid>
                     <Grid item md={ 3 }>
-
+                        <Card
+                          title='Turnos'
+                          body='Podes solicitar un turno a traves de nuestros telefonos o enviandonos un mensaje.'
+                          icon='fa-clock-o'
+                        />
                     </Grid>
                 </Grid>
             </Grid>
