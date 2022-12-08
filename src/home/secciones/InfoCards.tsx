@@ -16,7 +16,7 @@ function InfoCards() {
                 </p>
             </Grid>
             <Grid item xs={ 10 }>
-                <Grid container>
+                <Grid container alignItems='stretch'>
                     <Grid item md={ 3 }>
                         <Card
                           title='Quienes Somos'

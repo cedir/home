@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 function PersonalCard({ title, icon, body, button, buttonIcon }: PersonalCardProps) {
     const centerClass = 'd-flex justify-content-center';
     return (
-        <Card variant='outlined' className='pb-4'>
+        <Card variant='outlined' className='pb-4' style={ { height: '100%' } }>
             <CardContent>
                 <div className={ `${centerClass} py-3` }>
                     <div className={ `circle bg-primary ${centerClass} align-items-center` }>
