@@ -1,22 +1,22 @@
 import { Grid } from '@mui/material';
 import React from 'react';
 import Card from '../../common/Card';
-import './styles.css';
+import './styles.scss';
 
 function InfoCards() {
     return (
-        <Grid container justifyContent='center'>
+        <Grid container justifyContent='center' className='py-4' style={ { backgroundColor: '#FAFAFA' } }>
             <Grid item xs={ 10 }>
                 <h4 className='pacifico text-center text-primary'>
                     Cedir, Centro de Endoscopía digestiva de Rosario
                 </h4>
                 <div className='separator' />
-                <p className='text-secondary text-center'>
+                <p className='text-secondary text-center pb-3'>
                     Prevención, diagnóstico y tratamiento de enfermedades digestivas.
                 </p>
             </Grid>
             <Grid item xs={ 10 }>
-                <Grid container alignItems='stretch'>
+                <Grid container alignItems='stretch' spacing={ 2 }>
                     <Grid item md={ 3 }>
                         <Card
                           title='Quienes Somos'
@@ -40,6 +40,7 @@ function InfoCards() {
                           title='WhatsApp'
                           body='Solicite turnos por WhatsApp a los números (+549341) 3538426 / (+549341) 6751535.'
                           icon='fa-ambulance'
+                          important
                         />
                     </Grid>
                     <Grid item md={ 3 }>
