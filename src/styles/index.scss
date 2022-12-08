@@ -10,9 +10,10 @@ button {
   font-family: "Roboto";
 }
 
-font-raleway {
+.font-raleway {
   font-family: "Raleway", sans-serif;
 }
+
 
 * {
   font-size: 100%;
@@ -22,3 +23,11 @@ font-raleway {
 
 // Import Bootstrap and its default variables
 @import '~bootstrap/scss/bootstrap.scss';
+
+.btn-primary {
+  color: white;
+}
+
+.btn-primary:hover {
+  color: white;
+}

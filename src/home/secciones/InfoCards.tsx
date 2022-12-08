@@ -23,9 +23,12 @@ function InfoCards() {
                                 <h4 className='text-center' style={ { fontFamily: 'Raleway', fontWeight: 400 } }>Quienes Somos</h4>
                                 <div className='separator' />
                                 <p className='text-secondary'>Conozca nuestro equipo. Toda la calidad medica en un solo lugar.</p>
-                                <Button variant='primary' size='sm' className='cedirbutton'>
-                                    Leer más
-                                </Button>
+                                <div className='d-flex justify-content-center'>
+                                    <Button variant='primary' size='sm' className='px-3 pl-4 py-2'>
+                                        <span style={ { paddingLeft: '.3rem', marginRight: '1rem' } }><b>Leer más</b></span>
+                                        <i className='fa fa-angle-double-right' />
+                                    </Button>
+                                </div>
                             </CardContent>
                         </Card>
                     </Grid>
