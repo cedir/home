@@ -3,7 +3,7 @@ import { Nav, Navbar } from 'react-bootstrap';
 
 function NavLinks({ links }: NavLinksProps) {
     const style: StyleObject = {
-        navLink: { fontFamily: 'Raleway, sans-serif', padding: '1rem   2rem' },
+        navLink: { fontFamily: 'Raleway, sans-serif', padding: '1rem 2rem', fontSize: '1.05rem' },
         nav: { maxHeight: '100px' },
     };
     return (
