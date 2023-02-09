@@ -27,8 +27,7 @@
     "webpack-merge": "^5.7.3"
   },
   "scripts": {
-    "start": "webpack serve --config webpack.dev.js --hot --inline --open",
-    "lint": "node_modules/.bin/esw webpack.*.config src tools",
+    "start": "webpack serve --config webpack.dev.js --hot --open",
     "test": "react-scripts test",
     "build": "webpack --config webpack.prod.js",
     "eject": "react-scripts eject"
