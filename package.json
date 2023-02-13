@@ -6,10 +6,14 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@mui/material": "^5.10.15",
+    "@nuxt/friendly-errors-webpack-plugin": "^2.5.1",
     "@types/node": "^16.18.3",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.8",
     "bootstrap": "^5.2.2",
+    "css-minimizer-webpack-plugin": "^3.0.1",
+    "eslint-webpack-plugin": "^2.5.4",
+    "html-webpack-plugin": "^5.3.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.6.0",
     "react-dom": "^18.2.0",
@@ -17,12 +21,16 @@
     "react-scripts": "5.0.1",
     "sass": "^1.56.1",
     "typescript": "^4.8.4",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "webpack": "^5.52.1",
+    "webpack-cli": "^4.7.0",
+    "webpack-merge": "^5.7.3",
+    "url-loader": "^4.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "webpack serve --config webpack.dev.js --hot --open",
     "test": "react-scripts test",
+    "build": "webpack --config webpack.prod.js",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -47,6 +55,8 @@
     "@typescript-eslint/eslint-plugin": "^5.42.1",
     "@typescript-eslint/parser": "^5.42.1",
     "eslint": "^8.27.0",
-    "eslint-plugin-react": "^7.31.10"
+    "eslint-plugin-react": "^7.31.10",
+    "ts-loader": "^9.4.2",
+    "webpack-dev-server": "^3.11.3"
   }
 }
