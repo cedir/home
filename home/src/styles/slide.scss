@@ -1,0 +1,36 @@
+.overlay {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    &-black {
+        @extend .overlay;
+        background: rgba(0,0,0,0.35);
+    }
+    &-white {
+        @extend .overlay;
+        background: rgba(255,255,255,0.35);
+    }
+}
+
+.bullet {
+    border-radius: 100%;
+    border: none;
+    padding: 0;
+    width: 10px;
+    height: 10px;
+    box-sizing: border-box;
+    background-color: rgba(0,0,0,0.4);
+    margin-right: 0.2rem;
+
+    &.active {
+        background-color: black;
+    }
+}
+
+.carousel-descripcion {
+    position: absolute;
+    padding-top: 1.25rem;
+    padding-bottom: 1.25rem;
+    color: #fff;
+}
