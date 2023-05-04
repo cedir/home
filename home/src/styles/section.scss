@@ -1,0 +1,54 @@
+.edit-section {
+    position: relative;
+
+    .icon- {
+        position: absolute;
+        top: -1.5rem;
+        right: 7%;
+        padding: 0.5rem;
+        border-radius: 50%;
+        z-index: 100;
+        cursor: pointer;
+        border: 1px solid black;
+
+        &pencil {
+            @extend .icon-;
+            background-color: white;
+            display: none;
+        }
+
+        &confirm {
+            @extend .icon-;
+            background-color: #0071E3;
+            color: white;
+        }
+        
+        &delete {
+            @extend .icon-;
+            background-color: red;
+            color: white;
+        }
+
+    }
+
+    &:hover {
+        border: 2px solid red;
+        .icon-pencil {
+            display: block;
+
+        }
+    }
+}
+
+.fade-in {
+	opacity: 1;
+	animation-iteration-count: 1;
+	animation-duration: .2s;
+    animation-timing-function: ease-in;
+    animation-name: fadeInOpacity;
+}
+
+@keyframes fadeInOpacity {
+	0% { opacity: 0; }
+	100% { opacity: 1; }
+}
