@@ -5,9 +5,10 @@ import Simple from './secciones/Simple';
 import PhotoDescription from './secciones/PhotoDescription';
 import Slides from './secciones/Slides';
 import BlogCitation from './secciones/BlogCitation';
+import MultipleInfo from './secciones/MultipleInfo';
 
 function Homepage({ adminMode }: HomepageProps) {
-    const secciones: React.ReactNode[] = [<Slides key={ 0 }/>, <InfoCards key={ 1 }/>, <Simple key={ 2 } />, <PhotoDescription key={ 3 } />, <BlogCitation key={ 4 } />];
+    const secciones: React.ReactNode[] = [<Slides key={ 0 }/>, <InfoCards key={ 1 }/>, <Simple key={ 2 } />, <MultipleInfo key={ 3 }/>, <PhotoDescription key={ 4 } />, <BlogCitation key={ 5 } />];
     return (
         <>
             { secciones.map((sec, id) => (
