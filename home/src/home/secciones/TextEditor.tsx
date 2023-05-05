@@ -31,7 +31,7 @@ function TextEditor({ text, classNames, edit }: TextEditorProps) {
 
 interface TextEditorProps {
     text: string,
-    classNames: string,
+    classNames?: string,
     edit?: boolean,
     styles?: string,
 }
