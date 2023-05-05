@@ -8,7 +8,7 @@ import BlogCitation from './secciones/BlogCitation';
 import MultipleInfo from './secciones/MultipleInfo';
 
 function Homepage({ adminMode }: HomepageProps) {
-    const secciones: React.ReactNode[] = [<Slides key={ 0 }/>, <InfoCards key={ 1 }/>, <Simple key={ 2 } />, <MultipleInfo key={ 3 }/>, <PhotoDescription key={ 4 } />, <BlogCitation key={ 5 } />];
+    const secciones: React.ReactNode[] = [<Slides key={ 0 }/>, <InfoCards key={ 1 }/>, <Simple key={ 2 } />, <MultipleInfo key={ 3 }/>, <PhotoDescription key={ 4 } />];
     return (
         <>
             { secciones.map((sec, id) => (

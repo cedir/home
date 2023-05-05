@@ -3,8 +3,9 @@ import React from 'react'
 import MiniBlog1 from './images/mini_blog_1.jpeg';
 import MiniBlog2 from './images/mini_blog_2.png';
 import MiniBlog3 from './images/mini_blog_3.jpg';
+import TextEditor from './TextEditor';
 
-function MultipleInfo() {
+function MultipleInfo({ edit }: MultipleInfoProps) {
     const blogs = [
         {
             titulo: 'JORNADA INTERNAS DE ENTRENAMIENTO INTENSIVO EN MANOMETRIA DE ALTA RESOLUCION IMPEDANCIOMETRIA Y PHMETRIA',
@@ -24,10 +25,9 @@ function MultipleInfo() {
         }
     ]
 
-
     return (
     <Grid container justifyContent='center'>
-        <Grid container item md={ 10 } sx={ { paddingTop: '2rem' } }>
+        <Grid container item md={ 10 } sx={ { paddingTop: '2rem', paddingBottom: '5rem' } }>
             <Grid container item md={ 6 }>
                 <div>
                     <h4 className='font-raleway fw4'>Ultimas Novedades</h4>
@@ -39,12 +39,22 @@ function MultipleInfo() {
                             <img className="media-object" src={ blog.foto } style={ { maxWidth: '60px' } } />
                         </Grid>
                         <Grid item md={ 9 }>
-					    	<h5 style={ { fontSize: '0.9rem' } } className="blog-heading">{ blog.titulo }</h5>
-					    	<p style={ { fontSize: '0.8rem' } } className='text-secondary'><i className="fa fa-calendar pr-10" />{ blog.fecha }</p>
-					    	<p style={ { fontSize: '0.8rem', marginBottom: 0 } } className='text-secondary'>
-                                { blog.descripcion }
-                            </p>
-					    	<a href='' style={ { fontSize: '0.9rem' } }>Leer más<i className="fa fa-long-arrow-right pl-5"></i></a>
+                            <TextEditor
+                              text={`<h5>${blog.titulo}</h5>`}
+                              classNames='font-small2'
+                              edit={ edit }
+                            />
+                            <TextEditor
+                              text={`<p><i className="fa fa-calendar pr-10" />${ ` ${blog.fecha}` }</p>`}
+                              classNames='text-secondary font-small'
+                              edit={ edit }
+                            />
+                            <TextEditor
+                              text={`<p>${ blog.descripcion }</p>`}
+                              classNames='text-secondary font-small m-0'
+                              edit={ edit }
+                            />
+					    	<a href='' className='font-small2'>Leer más<i className="fa fa-long-arrow-right pl-5" /></a>
                             <div className='separator' />
                         </Grid>
                     </>)}
@@ -64,6 +74,10 @@ function MultipleInfo() {
         </Grid>
     </Grid>
   )
+}
+
+interface MultipleInfoProps {
+    edit?: boolean;
 }
 
 export default MultipleInfo;
