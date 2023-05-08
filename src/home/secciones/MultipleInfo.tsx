@@ -123,7 +123,10 @@ function MultipleInfo({ edit, ...props }: MultipleInfoProps) {
                                 </span>
                             </AccordionSummary>
                             <AccordionDetails>
-                                { panel.descripcion }
+                                <TextEditor
+                                  text={ panel.descripcion }
+                                  edit={ edit }
+                                />
                             </AccordionDetails>
                         </Accordion>
                     ))}
