@@ -102,9 +102,9 @@ function MultipleInfo({ edit, ...props }: MultipleInfoProps) {
                         <Accordion
                           key={ panel.title }
                           className='font-raleway'
-                          sx={ { width: '100%', backgroundColor: '#333333', color: 'white' } }
+                          sx={ { width: '100%' } }
                         >
-                            <AccordionSummary expandIcon={ <ExpandMore /> } >
+                            <AccordionSummary sx={ { backgroundColor: '#333333', color: 'white' } } expandIcon={ <ExpandMore sx={ { color: 'white' } }/> } >
                                 <i className="icon-users-1 pr-10" />
                                 { panel.title }
                             </AccordionSummary>
