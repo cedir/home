@@ -1,11 +1,12 @@
 import { Accordion, AccordionDetails, AccordionSummary, Grid } from '@mui/material';
-import React from 'react'
+import React, { useState } from 'react'
 import MiniBlog1 from './images/mini_blog_1.jpeg';
 import MiniBlog2 from './images/mini_blog_2.png';
 import MiniBlog3 from './images/mini_blog_3.jpg';
 import TextEditor from './TextEditor';
 import SeccionItem from '../SeccionItem';
 import { ExpandMore } from '@mui/icons-material';
+import GroupsIcon from '@mui/icons-material/Groups';
 
 function MultipleInfo({ edit, ...props }: MultipleInfoProps) {
     const blogs = [
@@ -54,42 +55,48 @@ function MultipleInfo({ edit, ...props }: MultipleInfoProps) {
             descripcion: 'Este laboratorio bioquímico además de realizar análisis sanguíneos especializados para detectar alteraciones de enfermedades digestivas, procesa muestras de alta complejidad para distintas enfermedades extra digestivas. Unidades',
         },
     ]
+    const [expanded, setExpanded] = React.useState<number>(-1);
+
+    const handleChange =
+        (panel: number) => (_: unknown, isExpanded: boolean) => {
+            setExpanded(isExpanded ? panel : -1);
+        };
 
     return (
     <Grid container justifyContent='center'>
-        <Grid container item md={ 10 } sx={ { paddingTop: '2rem', paddingBottom: '5rem' } }>
+        <Grid container item md={ 10 } spacing={ 2 } sx={ { paddingTop: '2rem', paddingBottom: '5rem' } }>
             <Grid container item md={ 6 }>
                 <SeccionItem edit={ edit } {...props} >
-                <div>
-                    <h4 className='font-raleway fw4'>Ultimas Novedades</h4>
-                    <div className='separator' />
-                </div>
-                <Grid container>
-                    {blogs.map(blog => <>
-                        <Grid item md={ 2 }>
-                            <img className="media-object" src={ blog.foto } style={ { maxWidth: '60px' } } />
-                        </Grid>
-                        <Grid item md={ 9 }>
-                            <TextEditor
-                              text={`<h5>${blog.titulo}</h5>`}
-                              classNames='font-small2'
-                              edit={ edit }
-                            />
-                            <TextEditor
-                              text={`<p><i className="fa fa-calendar pr-10" />${ ` ${blog.fecha}` }</p>`}
-                              classNames='text-secondary font-small'
-                              edit={ edit }
-                            />
-                            <TextEditor
-                              text={`<p>${ blog.descripcion }</p>`}
-                              classNames='text-secondary font-small m-0'
-                              edit={ edit }
-                            />
-					    	<a href='' className='font-small2'>Leer más<i className="fa fa-long-arrow-right pl-5" /></a>
-                            <div className='separator' />
-                        </Grid>
-                    </>)}
-                </Grid>
+                    <div>
+                        <h4 className='font-raleway fw4'>Ultimas Novedades</h4>
+                        <div className='separator' />
+                    </div>
+                    <Grid container>
+                        {blogs.map(blog => <>
+                            <Grid item md={ 2 }>
+                                <img className="media-object" src={ blog.foto } style={ { maxWidth: '60px' } } />
+                            </Grid>
+                            <Grid item md={ 9 }>
+                                <TextEditor
+                                  text={`<h5>${blog.titulo}</h5>`}
+                                  classNames='font-small2'
+                                  edit={ edit }
+                                />
+                                <TextEditor
+                                  text={`<p><i className="fa fa-calendar pr-10" />${ ` ${blog.fecha}` }</p>`}
+                                  classNames='text-secondary font-small'
+                                  edit={ edit }
+                                />
+                                <TextEditor
+                                  text={`<p>${ blog.descripcion }</p>`}
+                                  classNames='text-secondary font-small m-0'
+                                  edit={ edit }
+                                />
+                                <a href='' className='font-small2'>Leer más<i className="fa fa-long-arrow-right pl-5" /></a>
+                                <div className='separator' />
+                            </Grid>
+                        </>)}
+                    </Grid>
                 </SeccionItem>
             </Grid>
             <Grid container item md={ 3 }>
@@ -98,15 +105,22 @@ function MultipleInfo({ edit, ...props }: MultipleInfoProps) {
                         <h4 className='font-raleway fw4'>Unidades</h4>
                         <div className='separator' />
                     </div>
-                    { paneles.map(panel => (
+                    { paneles.map((panel, id) => (
                         <Accordion
+                          expanded={ expanded === id } onChange={handleChange(id)}
                           key={ panel.title }
                           className='font-raleway'
-                          sx={ { width: '100%' } }
+                          sx={ { width: '100%', marginTop: '.5rem' } }
                         >
-                            <AccordionSummary sx={ { backgroundColor: '#333333', color: 'white' } } expandIcon={ <ExpandMore sx={ { color: 'white' } }/> } >
-                                <i className="icon-users-1 pr-10" />
-                                { panel.title }
+                            <AccordionSummary
+                              sx={ { backgroundColor: expanded === id ? '#2AA4A5' : '#333333', color: 'white' } }
+                              expandIcon={ <ExpandMore sx={ { color: 'white' } }/> }
+                              onClick={ () => setExpanded(expanded === id ? -1 : id) }
+                            >
+                                <span>
+                                    <GroupsIcon sx={ { marginRight: '1rem' } }/>
+                                    <strong className='font-raleway'>{ panel.title }</strong>
+                                </span>
                             </AccordionSummary>
                             <AccordionDetails>
                                 { panel.descripcion }
