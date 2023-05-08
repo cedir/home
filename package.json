@@ -24,12 +24,15 @@
     "react-ig-feed": "^1.7.0",
     "react-instagram-embed": "^3.0.0",
     "react-rte": "^0.16.5",
+    "react-swipeable-views": "^0.14.0",
+    "react-swipeable-views-utils": "^0.14.0",
     "sass": "^1.59.3"
   },
   "devDependencies": {
     "@types/google-map-react": "^2.1.7",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
+    "@types/react-swipeable-views-utils": "^0.13.4",
     "@vitejs/plugin-react-swc": "^3.0.0",
     "eslint": "^8.36.0",
     "eslint-config-airbnb": "^19.0.4",

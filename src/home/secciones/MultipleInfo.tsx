@@ -1,4 +1,5 @@
-import { Accordion, AccordionDetails, AccordionSummary, Grid } from '@mui/material';
+import { Accordion, AccordionDetails, AccordionSummary, Box, Grid, MobileStepper, Step, Stepper } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
 import React, { useState } from 'react'
 import MiniBlog1 from './images/mini_blog_1.jpeg';
 import MiniBlog2 from './images/mini_blog_2.png';
@@ -7,6 +8,14 @@ import TextEditor from './TextEditor';
 import SeccionItem from '../SeccionItem';
 import { ExpandMore } from '@mui/icons-material';
 import GroupsIcon from '@mui/icons-material/Groups';
+import SwipeableViews from 'react-swipeable-views';
+import { autoPlay } from 'react-swipeable-views-utils';
+import Slider1 from './images/slider_1.jpg'
+import Slider2 from './images/slider_2.jpg'
+import Slider3 from './images/slider_3.jpg'
+import Slider4 from './images/slider_4.jpg'
+
+const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 function MultipleInfo({ edit, ...props }: MultipleInfoProps) {
     const blogs = [
@@ -56,6 +65,22 @@ function MultipleInfo({ edit, ...props }: MultipleInfoProps) {
         },
     ]
     const [expanded, setExpanded] = React.useState<number>(-1);
+    const theme = useTheme();
+    const [activeStep, setActiveStep] = React.useState(0);
+    const images = [Slider1, Slider2, Slider3, Slider4];
+
+    const handleNext = () => {
+        setActiveStep((prevActiveStep) => prevActiveStep + 1);
+      };
+    
+      const handleBack = () => {
+        setActiveStep((prevActiveStep) => prevActiveStep - 1);
+      };
+    
+      const handleStepChange = (step: number) => {
+        setActiveStep(step);
+      };
+    
 
     const handleChange =
         (panel: number) => (_: unknown, isExpanded: boolean) => {
@@ -135,9 +160,39 @@ function MultipleInfo({ edit, ...props }: MultipleInfoProps) {
             <Grid container item md={ 3 }>
                 <h4 className='font-raleway fw4'>Preguntas Frecuentes</h4>
                 <div className='separator' />
-                
+                <AutoPlaySwipeableViews
+                  axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
+                  index={activeStep}
+                  onChangeIndex={handleStepChange}
+                  enableMouseEvents
+                >
+                    {images.map((step, index) => (
+                    <div key={index}>
+                        {Math.abs(activeStep - index) <= 2 ? (
+                        <Box
+                          component="img"
+                          sx={{
+                          height: 255,
+                          display: 'block',
+                          maxWidth: 400,
+                          overflow: 'hidden',
+                          width: '100%',
+                          }}
+                          src={step}
+                        />
+                        ) : null}
+                    </div>
+                    ))}
+                </AutoPlaySwipeableViews>
+                <MobileStepper
+                  activeStep={activeStep}
+                  steps={ images.length }
+                  variant='dots'
+                  position='static'
+                  backButton={ <></> }
+                  nextButton={ <></> }
+                />
             </Grid>
-
         </Grid>
     </Grid>
   )
