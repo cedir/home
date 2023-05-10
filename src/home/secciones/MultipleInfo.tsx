@@ -1,21 +1,16 @@
-import { Accordion, AccordionDetails, AccordionSummary, Box, Grid, MobileStepper, Step, Stepper } from '@mui/material';
-import { useTheme } from '@mui/material/styles';
-import React, { useState } from 'react'
+import { Grid } from '@mui/material';
+import React from 'react'
 import MiniBlog1 from './images/mini_blog_1.jpeg';
 import MiniBlog2 from './images/mini_blog_2.png';
 import MiniBlog3 from './images/mini_blog_3.jpg';
-import TextEditor from './TextEditor';
 import SeccionItem from '../SeccionItem';
-import { ExpandMore } from '@mui/icons-material';
-import GroupsIcon from '@mui/icons-material/Groups';
-import SwipeableViews from 'react-swipeable-views';
-import { autoPlay } from 'react-swipeable-views-utils';
 import Slider1 from './images/slider_1.jpg'
 import Slider2 from './images/slider_2.jpg'
 import Slider3 from './images/slider_3.jpg'
 import Slider4 from './images/slider_4.jpg'
-
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+import BlogResumen from './BlogResumen';
+import AccordionInfo from './AccordionInfo';
+import SliderBlog from './SliderBlog';
 
 function MultipleInfo({ edit, ...props }: MultipleInfoProps) {
     const blogs = [
@@ -23,69 +18,63 @@ function MultipleInfo({ edit, ...props }: MultipleInfoProps) {
             titulo: 'JORNADA INTERNAS DE ENTRENAMIENTO INTENSIVO EN MANOMETRIA DE ALTA RESOLUCION IMPEDANCIOMETRIA Y PHMETRIA',
             descripcion: 'Evento dirigido por la Dra. Laura Sole referente a nivel Nacional e Internacional en el estudio de Motilidad del aparato digestivo. En estas jornadas, la Dra. realizara estudios de motilidad en distintas patologías digestivas utilizando dispositivos de alta resolución con los últimos avances tecnológicos.-',
             fecha: '07/07/2022',
-            foto: MiniBlog1,
+            imagen: MiniBlog1,
+            link: '',
         },{
             titulo: 'NO ESPERES TENER SÍNTOMAS PARA HACER UNA CONSULTA',
             descripcion: 'Todavía estas a tiempo para prevenir el Cáncer de Colon',
             fecha: '09/05/2022',
-            foto: MiniBlog2,
+            imagen: MiniBlog2,
+            link: '',
         },{
             titulo: 'NUEVA INCORPORACIÓN EN METODOLOGÍA DIAGNÓSTICA RELACIONADA A TRASTORNOS DE LA MOTILIDAD',
             descripcion: 'MANOMETRIA ESOFAGICA - ANORECTAL',
             fecha: '09/05/2022',
-            foto: MiniBlog3,
+            imagen: MiniBlog3,
+            link: '',
         }
     ];
 
     const paneles = [
         {
-            title: 'Videoendoscopia',
+            titulo: 'Videoendoscopia',
             descripcion: 'La endoscopía digestiva alta y baja se realiza bajo sedación analgésica permitiendo la visualización directa de esófago, estómago y cólon, con equipos de video endoscopio de última tecnología. <a>Unidades<i class="fa fa-long-arrow-right pl-5"/></a>'
         },{
-            title: 'Endocapsula',
+            titulo: 'Endocapsula',
             descripcion: 'El nuevo método no invasivo para el estudio del tubo digestivo. La endocápsula posse una vídeo cámara, una antena transmisora de imágenes de alta resolución , un sistema de iluminación y dos baterías. .Emite dos imágenes por segundo que son captadas por receptores ubicados fuera del cuerpo del paciente. Unidades',
         },{
-            title: 'Diagnostico pelviano',
+            titulo: 'Diagnostico pelviano',
             descripcion: 'La medicina, habitualmente avanza al ritmo que la sociedad de bienestar le marca. Debido a esto, al aumentar de esperanza de vida de la mujer , la atención recibida durante el embarazo, el postparto y la menopausia ha experimentado un mayor protagonismo. Unidades',
         },{
-            title: 'Ecografia',
+            titulo: 'Ecografia',
             descripcion: 'Departamento de ecografia C.E.Di.R. Nuestro centro cuenta con el más especializado sistema de imágenes en ecotomografía. Unidades',
         },{
-            title: 'Ecoendoscopia',
+            titulo: 'Ecoendoscopia',
             descripcion: 'Ultrasonografía endocópica, la nueva herramienta diagnóstica y terapéutica indispensable para definir y y tratar con mayor precisión lesiones del tubo digestivo. Unidades',
         },{
-            title: 'TRATAMIENTO ENDOSCOPICO CON BALON INTRAGASTRICO PARA LA OBESIDAD',
+            titulo: 'TRATAMIENTO ENDOSCOPICO CON BALON INTRAGASTRICO PARA LA OBESIDAD',
             descripcion: 'El tratamiento endoscópico para obesidad consiste en la colocación por via endoscópica de un balón dentro de la cavidad gástrica por un tiempo determinado. Es un método utilizado en todo el mundo , aprobado por la mayoría de los organismos oficiales de control de salud y tiene como ventaja a diferencia de la cirugía bariatrica que no se trata de un procedimiento quirúrgico que modifica el organismo en forma permanente, si no por el contrario una vez terminado el tratamiento el balón se retira no quedando ningún tipo de secuela en el organismo. Unidades',
         },{
-            title: 'Phmetria y Manometria',
+            titulo: 'Phmetria y Manometria',
             descripcion: 'Esta área fue desarrollada para el estudio de patología esofágica concerniente a la enfermedad del reflujo gastro esofágico como así también patologías del esfínter esofágico inferior. Unidades',
         },{
-            title: 'Laboratorio Bioquimico',
+            titulo: 'Laboratorio Bioquimico',
             descripcion: 'Este laboratorio bioquímico además de realizar análisis sanguíneos especializados para detectar alteraciones de enfermedades digestivas, procesa muestras de alta complejidad para distintas enfermedades extra digestivas. Unidades',
         },
     ]
-    const [expanded, setExpanded] = React.useState<number>(-1);
-    const theme = useTheme();
-    const [activeStep, setActiveStep] = React.useState(0);
-    const images = [Slider1, Slider2, Slider3, Slider4];
-
-    const handleNext = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
-      };
-    
-      const handleBack = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep - 1);
-      };
-    
-      const handleStepChange = (step: number) => {
-        setActiveStep(step);
-      };
-    
-
-    const handleChange =
-        (panel: number) => (_: unknown, isExpanded: boolean) => {
-            setExpanded(isExpanded ? panel : -1);
-        };
+    const images = [{
+        image: Slider1,
+        descripcion: 'Las hemorroides son paquetes vasculares (venas) que se encuentran normalmente en el conducto anal y sirven para ayudar al esfínter anal con la contención del contenido dentro del intestino (almohadilla hemorroidal fisiológica).'
+    }, {
+        image: Slider2,
+        descripcion: 'La constipación es un síntoma muy común de observar en nuestro medio.<br>Varias son las causas que producen constipación.'
+    }, {
+        image: Slider3,
+        descripcion: 'Sin lugar a dudas esta es la pregunta más frecuente que recibimos los especialistas de aparto digestivo.'
+    }, {
+        image: Slider4,
+        descripcion: 'Las hemorroides son dilataciones vasculares del canal anal, que producen una variedad de  síntomas, desde un leve sangrado que acompaña a las deposiciones, hasta dolor, ardor, prurito, prolapso y sangrados más severos y constantes.'
+    }];
 
     return (
     <Grid container justifyContent='center'>
@@ -96,32 +85,7 @@ function MultipleInfo({ edit, ...props }: MultipleInfoProps) {
                         <h4 className='font-raleway fw4'>Ultimas Novedades</h4>
                         <div className='separator' />
                     </div>
-                    <Grid container>
-                        {blogs.map(blog => <>
-                            <Grid item md={ 2 }>
-                                <img className="media-object" src={ blog.foto } style={ { maxWidth: '60px' } } />
-                            </Grid>
-                            <Grid item md={ 9 }>
-                                <TextEditor
-                                  text={`<h5>${blog.titulo}</h5>`}
-                                  classNames='font-small2'
-                                  edit={ edit }
-                                />
-                                <TextEditor
-                                  text={`<p><i className="fa fa-calendar pr-10" />${ ` ${blog.fecha}` }</p>`}
-                                  classNames='text-secondary font-small'
-                                  edit={ edit }
-                                />
-                                <TextEditor
-                                  text={`<p>${ blog.descripcion }</p>`}
-                                  classNames='text-secondary font-small m-0'
-                                  edit={ edit }
-                                />
-                                <a href='' className='font-small2'>Leer más<i className="fa fa-long-arrow-right pl-5" /></a>
-                                <div className='separator' />
-                            </Grid>
-                        </>)}
-                    </Grid>
+                    { blogs.map(blog => <BlogResumen edit={ edit } blog={ blog } />) }
                 </SeccionItem>
             </Grid>
             <Grid container item md={ 3 }>
@@ -130,72 +94,17 @@ function MultipleInfo({ edit, ...props }: MultipleInfoProps) {
                         <h4 className='font-raleway fw4'>Unidades</h4>
                         <div className='separator' />
                     </div>
-                    { paneles.map((panel, id) => (
-                        <Accordion
-                          expanded={ expanded === id } onChange={handleChange(id)}
-                          key={ panel.title }
-                          className='font-raleway'
-                          sx={ { width: '100%', marginTop: '.5rem' } }
-                        >
-                            <AccordionSummary
-                              sx={ { backgroundColor: expanded === id ? '#2AA4A5' : '#333333', color: 'white' } }
-                              expandIcon={ <ExpandMore sx={ { color: 'white' } }/> }
-                              onClick={ () => setExpanded(expanded === id ? -1 : id) }
-                            >
-                                <span>
-                                    <GroupsIcon sx={ { marginRight: '1rem' } }/>
-                                    <strong className='font-raleway'>{ panel.title }</strong>
-                                </span>
-                            </AccordionSummary>
-                            <AccordionDetails>
-                                <TextEditor
-                                  text={ panel.descripcion }
-                                  edit={ edit }
-                                />
-                            </AccordionDetails>
-                        </Accordion>
-                    ))}
+                    <AccordionInfo edit={ edit } paneles={ paneles } />
                 </SeccionItem>
             </Grid>
-            <Grid container item md={ 3 }>
+            <Grid container item md={ 3 } justifyContent='center'>
                 <h4 className='font-raleway fw4'>Preguntas Frecuentes</h4>
                 <div className='separator' />
-                <AutoPlaySwipeableViews
-                  axis={theme.direction === 'rtl' ? 'x-reverse' : 'x'}
-                  index={activeStep}
-                  onChangeIndex={handleStepChange}
-                  enableMouseEvents
-                >
-                    {images.map((step, index) => (
-                    <div key={index}>
-                        {Math.abs(activeStep - index) <= 2 ? (
-                        <Box
-                          component="img"
-                          sx={{
-                          height: 255,
-                          display: 'block',
-                          maxWidth: 400,
-                          overflow: 'hidden',
-                          width: '100%',
-                          }}
-                          src={step}
-                        />
-                        ) : null}
-                    </div>
-                    ))}
-                </AutoPlaySwipeableViews>
-                <MobileStepper
-                  activeStep={activeStep}
-                  steps={ images.length }
-                  variant='dots'
-                  position='static'
-                  backButton={ <></> }
-                  nextButton={ <></> }
-                />
+                <SliderBlog edit={ edit } blogs={ images } />
             </Grid>
         </Grid>
     </Grid>
-  )
+  );
 }
 
 interface MultipleInfoProps {
