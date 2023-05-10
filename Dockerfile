@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 
-FROM node:12-alpine
+FROM node:current-alpine3.17
 
 WORKDIR /home
 
@@ -10,4 +10,4 @@ RUN npm install --force
 
 COPY . .
 
-CMD ["npm", "run", "build"]
+CMD ["npm", "run", "dev"]
